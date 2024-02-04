@@ -27,6 +27,10 @@ async function run(){
             res.send(result);
         })
 
+        app.post('/post', async(req, res) = >{
+            
+        })
+
     } finally {
 
     }
