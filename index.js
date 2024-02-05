@@ -27,8 +27,10 @@ async function run(){
             res.send(result);
         })
 
-        app.post('/post', async(req, res) = >{
-            
+        app.post('/post', async(req, res) => {
+            const user = req.body;
+            const result = await userCollection.insertOne(user);
+            res.send(result);
         })
 
     } finally {
