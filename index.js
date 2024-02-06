@@ -33,6 +33,20 @@ async function run(){
             res.send(result);
         })
 
+        app.put('/update/:id', async(req, res) => {
+            const id = req.params.id;
+            const update = req.body;
+            const filter = {_id: new ObjectId(id)}
+            const admin = {
+                $set: {
+                    name: update.name,
+                    email: update.email
+                }
+            }
+            const result = await userCollection.updateOne(filter, admin);
+            res.send(result);
+        })
+
         app.delete('/delete/:id', async(req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id)}
